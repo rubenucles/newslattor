@@ -1,3 +1,33 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+feed_new:
+    path:      /feed/new
+    defaults:  { _controller: AppBundle:Feed:new }
+
+feed_create:
+    path:      /feed/create
+    defaults:  { _controller: AppBundle:Feed:create }
+
+feed:
+    path:      /feed
+    defaults:  { _controller: AppBundle:Feed:index }
+
+feed_show:
+    path:      /feed/view/{id}
+    defaults:  { _controller: AppBundle:Feed:show }
+    requirements:
+        id: \d+
+
+feed_edit:
+    path:      /feed/edit/{id}
+    defaults:  { _controller: AppBundle:Feed:edit }
+    requirements:
+        id: \d+
+
+feed_delete:
+    path:      /feed/delete/{id}
+    defaults:  { _controller: AppBundle:Feed:delete }
+    requirements:
+        id: \d+

@@ -1,0 +1,4 @@
+app_feed:
+    resource: "@AppBundle/Resources/config/routing/feed.php"
+    prefix:   /feed
+
