@@ -206,6 +206,30 @@ class FeedController extends Controller
     }
 
     /**
+     * Scrapper Start
+     *
+     */
+    public function scrapperAction()
+    {
+
+      $url_newspaper = array(
+       'elpais'=>'http://ep00.epimg.net/rss/elpais/portada.xml',
+       'elmundo'=>'http://estaticos.elmundo.es/elmundo/rss/portada.xml',
+       'elconfidencial'=>'http://rss.elconfidencial.com/espana/',
+       'larazon'=>'http://www.larazon.es/rss/portada.xml',
+       'elperiodico' => 'http://www.elperiodico.com/es/rss/rss_portada.xml'
+      );
+
+
+      foreach($url_newspaper as $k=>$v){
+        $scrapper = $this->get('app.scrapper');
+        $scrapper->start($k,$v);
+      }
+
+      return $this->redirect($this->generateUrl('feed'));
+    }
+
+    /**
      * Creates a form to delete a Feed entity by id.
      *
      * @param mixed $id The entity id

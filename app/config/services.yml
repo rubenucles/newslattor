@@ -1,0 +1,5 @@
+services:
+    app.scrapper:
+        class:    AppBundle\Service\Scrapper
+        arguments: ["@doctrine.orm.default_entity_manager"]
+        scope:    prototype

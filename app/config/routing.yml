@@ -31,3 +31,7 @@ feed_delete:
     defaults:  { _controller: AppBundle:Feed:delete }
     requirements:
         id: \d+
+
+feed_scrapper:
+    path:      /feed/scrapper
+    defaults:  { _controller: AppBundle:Feed:scrapper }
