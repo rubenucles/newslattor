@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Portadas</h1>
+
+    <div class="row">
+      {% for entity in entities %}
+          {% if loop.index0 % 2 == 0 %}
+            <div class="clearfix"></div>
+          {% endif %}
+
+          <div class="col-md-6 col-sm-12">
+            <h2>{{ entity.publisher }}</h2>
+            <h3>{{ entity.title }}</h3>
+            <div>
+              <img src="{{ entity.image }}" class="col-md-12">
+            </div>
+            <div><a href="{{ entity.source }}">Ir a la noticia original</a></div>
+            <div>{{ entity.body | replace({ (entity.image) : ''}) | raw  }}</div>
+          </div>
+        {% endfor %}
+      </div>
+{% endblock %}

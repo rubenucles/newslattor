@@ -15,6 +15,21 @@ use AppBundle\Form\FeedType;
 class FeedController extends Controller
 {
 
+  /**
+   * Lists all Feed entities.
+   *
+   */
+  public function portadasAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+
+      $entities = $em->getRepository('AppBundle:Feed')->findBy(array(),array('id' => 'DESC'),5);
+
+      return $this->render('AppBundle:Feed:portadas.html.twig', array(
+          'entities' => $entities,
+      ));
+  }
+
     /**
      * Lists all Feed entities.
      *
